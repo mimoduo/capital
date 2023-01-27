@@ -1,6 +1,6 @@
 module.exports = {
 	status: 'wip',
 	context: {
-		text: 'Currently over $1 billion AUM in digital infrastructure assists.',
+		text: 'Over $1 billion in digital infrastructure assets since 2021.',
 	}
 };
