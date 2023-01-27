@@ -1,0 +1,158 @@
+{% include '@partial-page-header' with {
+	page: page
+} %}
+
+<!-- Full Width Callouts -->
+<div class="full_width_callouts" id="page_content" tabindex="-1" aria-labelledby="page_title">
+	{% render '@partial-filter' %}
+
+	{% include '@partial-department-list' with {
+		title: page.title,
+		items: [
+			{
+				name: 'Department or Office Name',
+				title: '',
+				url: 'page-directory-detail.html',
+				image: '1',
+				contact: {
+					email: 'name@university.edu',
+					phone: '(410) 555-1234'
+				},
+				location: 'Duffy 254',
+				department: ''
+			},
+			{
+				name: 'Cum sociis natoque penatibus',
+				title: '',
+				url: 'page-directory-detail.html',
+				image: '',
+				contact: {
+					email: 'npenatibus@university.edu',
+					phone: '(410) 555-1234'
+				},
+				location: '2980 Falls Road,<br> Baltimore, MD 21211',
+				department: ''
+			},
+			{
+				name: 'Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.',
+				title: '',
+				url: 'page-directory-detail.html',
+				image: '',
+				contact: {
+					email: 'name@university.edu',
+					phone: '(410) 555-1234'
+				},
+				location: '101',
+				department: ''
+			},
+			{
+				name: 'Department',
+				title: '',
+				url: 'page-directory-detail.html',
+				image: '',
+				contact: {
+					email: 'vivamus-elementum-semper@university.edu',
+					phone: '(410) 555-1234'
+				},
+				location: 'Donec pede justo, fringilla vel, aliquet nec',
+				department: ''
+			},
+			{
+				name: 'Office',
+				title: '',
+				url: 'page-directory-detail.html',
+				image: '',
+				contact: {
+					email: 'name@university.edu',
+					phone: '(410) 555-1234'
+				},
+				location: 'Duffy 254',
+				department: ''
+			},
+			{
+				name: 'Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.',
+				title: '',
+				url: 'page-directory-detail.html',
+				image: '',
+				contact: {
+					email: 'email@university.edu',
+					phone: '(410) 555-1234'
+				},
+				location: 'Aenean vulputate eleifend tellus. Aenean leo ligula.',
+				department: ''
+			},
+			{
+				name: 'Aliquam lorem',
+				title: '',
+				url: 'page-directory-detail.html',
+				image: '',
+				contact: {
+					email: 'vulputate-eget@university.edu',
+					phone: '(410) 555-1234'
+				},
+				location: 'Etiam rhoncus',
+				department: ''
+			},
+			{
+				name: 'Phasellus viverra nulla ut metus varius laoreet.',
+				title: '',
+				url: 'page-directory-detail.html',
+				image: '',
+				contact: {
+					email: 'pretium@university.edu',
+					phone: '(410) 555-1234'
+				},
+				location: 'Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.',
+				department: ''
+			},
+			{
+				name: 'Quisque rutrum',
+				title: '',
+				url: 'page-directory-detail.html',
+				image: '',
+				contact: {
+					email: 'IntegerTincidunt@university.edu',
+					phone: '(410) 555-1234'
+				},
+				location: 'Aliquam lorem ante',
+				department: ''
+			},
+			{
+				name: 'Etiam ultricies nisi vel augue',
+				title: '',
+				url: 'page-directory-detail.html',
+				image: '',
+				contact: {
+					email: 'aenean@university.edu',
+					phone: '(410) 555-1234'
+				},
+				location: 'viverra quis',
+				department: ''
+			},
+			{
+				name: 'Nam eget dui',
+				title: '',
+				url: 'page-directory-detail.html',
+				image: '',
+				contact: {
+					email: 'nam-eget-dui@university.edu',
+					phone: '(410) 555-1234'
+				},
+				location: 'ultricies nisi vel augue',
+				department: ''
+			},
+			{
+				name: 'Maecenas nec odio et ante tincidunt tempus.',
+				title: '',
+				url: 'page-directory-detail.html',
+				image: '',
+				contact: {
+					email: 'Maecenas@university.edu',
+					phone: '(410) 555-1234'
+				},
+				location: 'dolor',
+				department: ''
+			}
+		]
+	} %}
+</div>

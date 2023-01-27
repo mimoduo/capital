@@ -1,0 +1,154 @@
+/* ==========================================================================
+	Accordion
+============================================================================= */
+
+.accordion {
+	@include margined_xl;
+}
+
+.accordion_inner {
+}
+
+.accordion_header {
+}
+
+.accordion_title {
+}
+
+.accordion_header {
+	margin-bottom: 30px;
+}
+
+.accordion_title_label {
+}
+
+.accordion_title {
+	@include h2;
+
+	margin-block: 0 10px;
+}
+
+.accordion_description {
+	@include body_text;
+
+	p {
+		margin-block: 0;
+	}
+}
+
+.accordion_items {
+	border-top: 1px solid;
+}
+
+.accordion_item {
+	border-bottom: 1px solid;
+}
+
+.accordion_item {
+}
+
+.accordion_item_heading {
+	margin-block: 0;
+}
+
+.accordion_item_button {
+	width: 100%;
+
+	color: blue;
+	text-align: left;
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	@include hover {
+		color: $black;
+	}
+}
+
+.accordion_item_heading_inner {
+	align-items: center;
+	display: grid;
+	gap: 20px;
+	grid-template-columns: 1fr max-content;
+	padding-block: 20px;
+}
+
+.accordion_item_heading_label {
+	align-items: baseline;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0 10px;
+}
+
+.accordion_item_heading_title {
+	@include h4;
+}
+
+.accordion_item_heading_subtitle {
+	@include body_text;
+}
+
+.accordion_item_heading_icon {
+	position: relative;
+
+	width: 45px;
+
+	aspect-ratio: 1;
+	align-items: center;
+	background-color: blue;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	transition: background-color $base_speed;
+
+	@media print {
+		display: none;
+	}
+
+	&:before,
+	&:after {
+		position: absolute;
+		inset: 50% auto auto 50%;
+
+		width: 20px;
+		height: 2px;
+
+		background-color: $white;
+		border-radius: 2px;
+		content: '';
+		transition: opacity $base_speed, rotate $base_speed, translate $base_speed;
+	}
+
+	&:before {
+		translate: -50% -50%;
+	}
+
+	&:after {
+		rotate: 90deg;
+		translate: -50% -50%;
+
+		.accordion_item.fs-swap-active & {
+			rotate: 0deg;
+		}
+	}
+
+	@include nested_hover($selector: '.accordion_item_button') {
+		background-color: $black;
+	}
+}
+
+.accordion_item_content {
+	overflow: hidden;
+	padding-block: 10px 40px;
+
+	.accordion_item.fs-swap-enabled & {
+		display: none;
+
+		@media print {
+			display: block;
+		}
+	}
+
+	.accordion_item.fs-swap-active & {
+		display: block;
+	}
+}

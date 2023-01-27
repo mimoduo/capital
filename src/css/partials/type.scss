@@ -1,0 +1,343 @@
+/* Typography
+============================================================================= */
+
+.typography {
+	@include body_text;
+
+	a {
+		@include type_link;
+	}
+
+	p {
+		margin: 30px 0;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		+ * {
+			margin-top: 0;
+		}
+	}
+
+	h1 {
+		@include h1;
+
+		margin-block: 50px 10px;
+	}
+
+	h2 {
+		@include h2;
+
+		margin-block: 50px 10px;
+	}
+
+	h3 {
+		@include h3;
+
+		margin-block: 50px 10px;
+	}
+
+	h4 {
+		@include h4;
+
+		margin-block: 50px 10px;
+	}
+
+	h5 {
+		@include h5;
+
+		margin-block: 50px 10px;
+	}
+
+	h6 {
+		@include h6;
+
+		margin-block: 50px 10px;
+	}
+
+	.intro {
+		@include intro_text;
+
+		p {
+			margin-block: 0;
+		}
+	}
+
+	.copy {
+		@include body_text;
+	}
+
+	.small {
+		@include small_text;
+	}
+
+	.label {
+		@include label_text;
+	}
+
+	.caption {
+		@include caption_text;
+	}
+}
+
+/* WYSIWYG Images
+============================================================================= */
+
+.typography {
+	img {
+		height: auto;
+		max-width: 100%;
+	}
+
+	.block_left,
+	.block_right,
+	.block_center,
+	.alignleft,
+	.alignright,
+	.aligncenter,
+	.alignnone,
+	.align-left,
+	.align-right,
+	.align-center {
+		width: auto;
+
+		display: table;
+		margin-block: 20px;
+		table-layout: fixed;
+
+		img {
+			display: block;
+		}
+
+		figcaption,
+		.wp-caption-text {
+			@include small_text();
+
+			caption-side: bottom;
+			display: table-caption;
+			margin-top: 20px;
+		}
+	}
+
+	.block_left,
+	.block_right,
+	.alignleft,
+	.alignright,
+	.align-left,
+	.align-right {
+		max-width: 50%;
+
+		@media #{$max_sm} {
+			max-width: 100%;
+
+			float: none;
+			margin-inline: 0;
+		}
+
+		@media #{$min_sm} {
+			margin-block: 10px 30px;
+		}
+	}
+
+	.block_left,
+	.alignleft,
+	.align-left {
+		@media #{$min_sm} {
+			float: left;
+			margin-right: 30px;
+		}
+	}
+
+	.block_right,
+	.alignright,
+	.align-right {
+		@media #{$min_sm} {
+			float: right;
+			margin-left: 30px;
+		}
+	}
+
+	.block_center,
+	.aligncenter,
+	.align-center {
+		text-align: center;
+
+		img {
+			margin-inline: auto;
+		}
+	}
+
+	.alignleft,
+	.alignright,
+	.aligncenter,
+	.alignnone {
+		width: auto !important;
+	}
+}
+
+/* Blockquote
+============================================================================= */
+
+.typography {
+	blockquote {
+		@include intro_text;
+
+		margin-block: 50px;
+
+		&:not(.quote_content) {
+		}
+
+		p {
+			margin-block: 0;
+		}
+	}
+
+	.quote {
+		position: relative;
+
+		border-block: 1px solid;
+		margin-block: 50px;
+		padding-block: 50px;
+	}
+
+	.quote_content {
+		margin: 0 0 20px;
+
+		p {
+			&:first-of-type {
+				margin-top: 0;
+			}
+
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.quote_caption {
+		@include body_text;
+	}
+
+	.quote_caption_name {
+	}
+
+	.quote_caption_title {
+	}
+}
+
+/* Lists
+============================================================================= */
+
+.typography {
+	ol,
+	ul {
+		margin-block: 30px;
+		translate: -22px;
+
+		li {
+			margin-block: 12px;
+		}
+
+		ol,
+		ul {
+			margin-block: 0;
+			translate: 0;
+		}
+
+		::marker {
+			font-weight: bold;
+		}
+	}
+}
+
+/* Tables
+============================================================================= */
+
+.typography {
+	table {
+		width: 100%;
+
+		border-collapse: collapse;
+		border: 1px solid;
+
+		tr {
+			&:nth-child(even) {
+				background-color: $gray_05;
+			}
+		}
+
+		th,
+		td {
+			border: 1px solid;
+			padding: 10px 20px;
+			vertical-align: top;
+		}
+
+		th,
+		thead td {
+			@include h6;
+
+			text-align: left;
+		}
+
+		td {
+			@include small_text;
+		}
+	}
+}
+
+.table_wrapper {
+	@include margined;
+
+	position: relative;
+}
+
+.table_wrapper_overflow {
+	position: relative;
+
+	border: 1px solid $gray_20;
+
+	&:after {
+		@include gradient_right(rgba($black, 0), rgba($black, 0.1));
+
+		width: 20px;
+		height: 100%;
+
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		content: '';
+	}
+}
+
+.table_wrapper_inner {
+	overflow-y: hidden;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+/* ==========================================================================
+   iframe
+============================================================================= */
+
+.typography {
+	.video_frame {
+		aspect-ratio: 16 / 9;
+
+		iframe {
+			width: 100%;
+			height: 100%;
+
+			object-fit: cover;
+		}
+
+		@media print {
+			display: none;
+		}
+	}
+}

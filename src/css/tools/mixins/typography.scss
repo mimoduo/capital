@@ -1,0 +1,103 @@
+/* ==========================================================================
+	Typography
+============================================================================= */
+
+@mixin sans($weight: null) {
+	font-family: 'Open Sans', sans-serif;
+
+	@if $weight !=null {
+		font-weight: $weight;
+	}
+}
+
+@mixin serif($weight: null) {
+	font-family: 'Halant', serif;
+
+	@if $weight !=null {
+		font-weight: $weight;
+	}
+}
+
+// Headings
+// =============================================================================
+
+@mixin h1 {
+	@include serif(700);
+
+	font-size: font_size_clamp(48px, 58px);
+	line-height: calc(64 / 48);
+}
+
+@mixin h2 {
+	@include serif(700);
+
+	font-size: font_size_clamp(38px, 48px);
+	line-height: calc(50 / 38);
+}
+
+@mixin h3 {
+	@include serif(500);
+
+	font-size: font_size_clamp(28px, 36px);
+	line-height: calc(42 / 28);
+}
+
+@mixin h4 {
+	@include serif(500);
+
+	font-size: 26px;
+	line-height: calc(34 / 26);
+}
+
+@mixin h5 {
+	@include serif(700);
+
+	font-size: 18px;
+	line-height: calc(26 / 18);
+}
+
+@mixin h6 {
+	@include serif(700);
+
+	font-size: 14px;
+	line-height: calc(20 / 14);
+}
+
+@mixin intro_text {
+	font-size: 24px;
+	font-weight: 700;
+	line-height: calc(38 / 24);
+}
+
+@mixin body_text {
+	font-size: 18px;
+	line-height: calc(32 / 18);
+}
+
+@mixin small_text {
+	font-size: 15px;
+	line-height: calc(24 / 15);
+}
+
+@mixin label_text {
+	@include sans;
+
+	font-size: 12px;
+	line-height: calc(22 / 14);
+}
+
+@mixin caption_text {
+	font-size: 12px;
+	line-height: calc(22 / 14);
+}
+
+@mixin type_link() {
+	font-weight: 700;
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	&:hover,
+	&:focus {
+		color: $black;
+	}
+}

@@ -1,0 +1,160 @@
+/* ==========================================================================
+	Sub Navigation
+============================================================================= */
+
+.sub_nav_group {
+	position: relative;
+}
+
+.sub_nav_panel {
+	.sub_nav_group.fs-swap-enabled & {
+		width: 100%;
+
+		position: absolute;
+
+		display: block;
+		opacity: 0;
+		transition: opacity $base_speed, visibility $base_speed;
+		visibility: hidden;
+	}
+
+	.sub_nav_group.fs-swap-active & {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.sub_nav {
+}
+
+.sub_nav_header {
+	@include visually_hide;
+}
+
+.sub_nav_title {
+}
+
+.sub_nav_list {
+	--columns: 2;
+
+	@include h6;
+
+	background-color: $gray_05;
+	display: grid;
+
+	@media #{$min_md} {
+		gap: 0 $fs_grid_gap;
+		grid-template-columns: repeat(var(--columns), 1fr);
+	}
+
+	@media #{$min_lg} {
+		--columns: 3;
+
+		background-color: transparent;
+	}
+
+	@media #{$min_xl} {
+		--columns: 4;
+	}
+}
+
+.sub_nav_item {
+}
+
+.sub_nav_link {
+	display: block;
+	padding: 10px 20px;
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	@media #{$min_lg} {
+		padding-inline: 0;
+	}
+
+	@include hover {
+		color: $black;
+	}
+}
+
+.sub_nav_link_inner {
+}
+
+.sub_nav_link_label {
+}
+
+/* Toggle
+============================================================================= */
+
+.sub_nav_toggle {
+	display: none;
+
+	.sub_nav_group.fs-swap-enabled & {
+		width: 100%;
+
+		position: relative;
+
+		border: 1px solid;
+		color: blue;
+		display: block;
+		text-align: left;
+		transition: color $base_speed;
+
+		@include hover {
+			color: $black;
+		}
+	}
+}
+
+.sub_nav_toggle_inner {
+	width: 100%;
+
+	align-items: center;
+	display: flex;
+	gap: 10px;
+	padding: 20px;
+	transition: opacity $base_speed, visibility $base_speed;
+}
+
+.sub_nav_toggle_inner_default {
+	opacity: 1;
+	visibility: visible;
+
+	.sub_nav_toggle.fs-swap-active & {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+.sub_nav_toggle_inner_active {
+	position: absolute;
+	top: 0;
+
+	opacity: 0;
+	visibility: hidden;
+
+	.sub_nav_toggle.fs-swap-active & {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+.sub_nav_toggle_label {
+	@include h6;
+
+	flex: 1;
+}
+
+.sub_nav_toggle_label_default {
+}
+
+.sub_nav_toggle_label_active {
+}
+
+.sub_nav_toggle_icon {
+}
+
+.sub_nav_toggle_icon_default {
+}
+
+.sub_nav_toggle_icon_active {
+}

@@ -1,0 +1,124 @@
+/* ==========================================================================
+	Topic Row
+============================================================================= */
+
+.topics {
+	@include margined_xl;
+}
+
+.topics_inner {
+}
+
+.topics_header {
+	margin-bottom: 30px;
+}
+
+.topics_title {
+	@include h2;
+
+	margin-block: 0 10px;
+}
+
+.topics_title_label {
+}
+
+.topics_description {
+	@include body_text;
+
+	p {
+		margin-block: 0;
+	}
+}
+
+.topics_body {
+	display: grid;
+	gap: 30px;
+
+	@media #{$min_lg} {
+		row-gap: 60px;
+	}
+}
+
+.topic {
+}
+
+.topic_inner {
+	overflow: hidden;
+
+	@media #{$min_md} {
+		display: flex;
+		gap: $fs_grid_gap;
+	}
+}
+
+.topic_figure {
+	@include responsive_image;
+
+	width: max(30.5%, 115px);
+
+	margin: 0 0 20px 0;
+
+	@media (min-width: 360px) {
+		float: right;
+		margin-left: 20px;
+	}
+
+	@media #{$min_md} {
+		width: auto;
+
+		flex: 0 0 make_column(2);
+		float: none;
+		margin: 0;
+	}
+
+	@media #{$min_lg} {
+		flex-basis: make_column(4);
+	}
+}
+
+.topic_image {
+}
+
+.topic_wrapper {
+}
+
+.topic_header {
+}
+
+.topic_title {
+	@include h3;
+
+	margin-block: 0 10px;
+}
+
+.topic_label {
+}
+
+.topic_body {
+}
+
+.topic_description {
+	@include body_text;
+
+	p {
+		margin-block: 0;
+	}
+}
+
+.topic_links {
+	margin-top: 10px;
+}
+
+.topic_link_item {
+}
+
+.topic_link {
+	display: inline-block;
+	padding-block: 6px;
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	@include hover {
+		color: $black;
+	}
+}

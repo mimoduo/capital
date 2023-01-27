@@ -1,0 +1,149 @@
+.spotlight {
+	position: relative;
+
+	// aspect-ratio: 1985/1324;
+
+	.fs-row,
+	.fs-cell {
+		height: 100%;
+	}
+}
+
+.spotlight_inner {
+	min-height: 100vh;
+	height: 100%;
+
+	align-items: center;
+	display: grid;
+	padding-top: font_size_clamp(180px, 420px);
+	padding-bottom: font_size_clamp(80px, 220px);
+
+	@media #{$min_md} {
+		min-height: auto;
+	}
+}
+
+.spotlight_text {}
+
+.spotlight_title {
+	font-size: font_size_clamp(40px, 65px);
+	line-height: calc(90 / 85);
+	margin: 0;
+
+	@media #{$min_xxl} and (min-height: 1000px) {
+		font-size: font_size_clamp(65px, 85px);
+	}
+}
+
+.spotlight_title_row {
+	display: block;
+	opacity: 0;
+	transform: translate(-8px, 0);
+	transition:
+		opacity $base_speed * 2,
+		transform $base_speed * 2;
+
+	@for $i from 1 through 10 {
+		&:nth-child(#{$i}) {
+			transition-delay: 0.15s * ($i - 1);
+		}
+	}
+
+	.js & {
+		opacity: 1;
+		transform: translate(0, 0);
+	}
+}
+
+.spotlight_media {
+	@include cover;
+
+	position: fixed;
+	z-index: -2;
+
+	background:
+		radial-gradient(circle at 50% 100%,
+			#011E59,
+			$navy);
+}
+
+.spotlight_image {
+	height: 100%;
+	width: 100%;
+
+	object-fit: cover;
+
+	@media #{$min_xxl} {
+		width: 3020px;
+
+		position: absolute;
+		left: 50%;
+
+		aspect-ratio: 1985/1324;
+		display: block;
+		object-fit: none;
+		transform: translate(-50%, 0);
+	}
+}
+
+.spotlight_bubbles {
+	height: 200px;
+	width: 100%;
+	max-width: $mq_min_xxl * 1px;
+
+	position: fixed;
+	bottom: 0;
+	left: 50%;
+
+	transform: translate(-50%, 0);
+
+	// #016A72
+}
+
+.spotlight_bubble {
+	position: absolute;
+
+	aspect-ratio: 1;
+	border-radius: 50%;
+	opacity: 0;
+}
+
+.spotlight_bubble_foreground {
+	box-shadow: inset 0 0 20px 0 #00EBFE;
+
+	@for $i from 1 through 40 {
+		&:nth-child(#{$i}) {
+			width: random(20) * 1px + 10px;
+
+			top: random(100) * 1%;
+			left: random(100) * 1%;
+
+			animation: bubble 4s random(1000) * .015s infinite cubic-bezier(.65, .16, .32, 1.01);
+			background: rgba(1, 130 + random(40), 200 + random(30), random(50) * .02 + .5);
+		}
+	}
+}
+
+.spotlight_bubble_background {
+	box-shadow: inset 0 0 20px 0 lighten($navy, 30%);
+
+	@for $i from 1 through 40 {
+		&:nth-child(#{$i}) {
+			width: random(30) * 1px + 10px;
+
+			top: random(100) * 1%;
+			left: random(100) * 1%;
+
+			animation: bubble 4s random(1000) * .015s infinite cubic-bezier(.65, .16, .32, 1.01);
+			background: rgba(1, 50 + random(30), 120 + random(30), random(50) * .02 + .5);
+		}
+	}
+}
+
+@keyframes bubble {
+	50% {
+		opacity: 1;
+		transform:
+			translate(0, -10px) scale(1.05);
+	}
+}

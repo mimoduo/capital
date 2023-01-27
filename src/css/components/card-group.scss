@@ -1,0 +1,104 @@
+/* ==========================================================================
+	Card Group
+============================================================================= */
+
+.card_group {
+	@include margined_xl;
+}
+
+.card_group_header {
+	margin-bottom: 30px;
+}
+
+.card_group_header_inner {
+}
+
+.card_group_title {
+	@include h2;
+
+	margin-block: 0 10px;
+}
+
+.card_group_description {
+	@include body_text;
+
+	p {
+		margin-block: 0;
+	}
+}
+.card_group_body {
+}
+
+.card_group_items {
+	display: grid;
+	gap: 30px $fs_grid_gap;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+	@media #{$min_lg} {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	&.card_count_2 {
+	}
+
+	&.card_count_3 {
+	}
+
+	&.card_count_4 {
+	}
+}
+
+.card_group_item {
+}
+
+.card_group_item_figure {
+	@include responsive_image;
+
+	margin-bottom: 20px;
+}
+
+.card_group_item_image {
+}
+
+.card_group_item_body {
+	align-items: start;
+	display: grid;
+	gap: 10px;
+}
+
+.card_group_item_title {
+	@include h4;
+
+	margin-block: 0;
+}
+
+.card_group_item_title_label {
+}
+
+.card_group_item_stat {
+	margin-block: 0;
+}
+
+.card_group_item_stat_figure {
+	@include h2;
+
+	display: block;
+}
+
+.card_group_item_stat_context {
+	@include h5;
+
+	display: block;
+}
+
+.card_group_item_description {
+	@include body_text;
+
+	p {
+		margin-block: 0;
+	}
+
+	a {
+		@include type_link;
+	}
+}

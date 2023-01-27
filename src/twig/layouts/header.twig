@@ -1,0 +1,31 @@
+<!-- Header -->
+<header class="js-header header" id="header">
+	<noscript>
+		<iframe src="//www.googletagmanager.com/ns.html?id=GTM-K6P58WP" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+	</noscript>
+
+	<a class="skip_link skip_main" id="skip_main_link" href="#page_title">Skip Main Navigation</a>
+
+	{% if page.alert == true %}
+		<a class="js-skip-alert skip_link skip_alert" id="skip_alert_link" href="#alert_title">Skip to site alert</a>
+	{% endif %}
+
+	<div class="header_primary">
+		<div class="fs-row">
+			<div class="fs-cell">
+				<div class="header_primary_inner">
+					<div class="header_logo">
+						{% include '@partial-logo' with {
+							modifier: 'header',
+							icon: 'logo',
+							print: ''
+						} %}
+					</div>
+
+					<div class="header_hint">Investor Access</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+<!-- END: Header -->

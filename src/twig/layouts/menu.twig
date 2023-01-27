@@ -1,0 +1,92 @@
+<!-- Menu -->
+<div class="js-menu menu" id="menu" aria-label="Site Menu">
+	<div class="menu_header">
+		<div class="fs-row">
+			<div class="fs-cell">
+				<div class="menu_header_inner">
+					<h2 class="menu_title">Site Menu</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="menu_primary">
+		<div class="fs-row">
+			<div class="fs-cell">
+				<div class="menu_primary_inner">
+					<div class="menu_search">
+						{% include '@partial-search' with {
+							modifier: 'menu',
+							aria: 'site search',
+							label: 'Search',
+							placeholder: '',
+							button_text: 'Submit'
+						} %}
+					</div>
+					<div class="menu_main_nav">
+						{% include '@navigation-collapse' with {
+							class: 'main_collapse',
+							modifier: '',
+							title: 'site',
+							toggle_icon: 'caret_down',
+							active_index: activePage,
+							links: navigation.main
+						} %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="menu_ribbon">
+		<div class="fs-row">
+			<div class="fs-cell">
+				<div class="menu_ribbon_inner">
+					<div class="menu_audience_nav">
+						{% include '@navigation-toggle' with {
+							class: 'audience',
+							modifier: '',
+							title: 'audience',
+							links: navigation.audience,
+							icon: '',
+							child_icon: '',
+							toggle: {
+								title: 'Audience',
+								icon: 'plus',
+								title_active: 'Close',
+								icon_active: 'minus',
+								swap_target: '.js-audience-nav-group',
+								swap_link: 'audience'
+							}
+						} %}
+					</div>
+					<div class="menu_secondary_nav">
+						{% include '@navigation-basic' with {
+							class: 'secondary',
+							modifier: '',
+							title: 'secondary',
+							active_index: '',
+							links: navigation.secondary
+						} %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="menu_close">
+		<div class="fs-row">
+			<div class="fs-cell">
+				<div class="menu_close_inner">
+					{% include '@partial-button-toggle' with {
+						class: 'menu_close',
+						title: 'Close',
+						icon: 'close',
+						active_title: "Close",
+						active_icon: 'close',
+						swap_target: '.menu',
+						swap_link: 'menu'
+					} %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END: Menu -->

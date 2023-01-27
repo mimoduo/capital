@@ -1,0 +1,48 @@
+/* ==========================================================================
+	Program Meta
+============================================================================= */
+
+.program_meta {
+}
+
+.program_meta_inner {
+	border-bottom: 1px solid;
+	padding-block: 30px;
+}
+
+.program_details {
+	display: grid;
+	gap: 20px;
+
+	@media #{$min_lg} {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 40px;
+	}
+}
+
+.program_detail {
+	display: grid;
+	gap: 10px;
+}
+
+.program_detail_label {
+	@include h6;
+}
+
+.program_detail_label_hint {
+	@include visually_hide;
+}
+
+.program_detail_data {
+	@include small_text;
+}
+
+.program_detail_data_link {
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	@include hover {
+		color: $black;
+	}
+}

@@ -1,0 +1,36 @@
+{#
+	{% include '@component-text-block' with {
+		text: '',
+	} %}
+#}
+
+<!-- Spotlight -->
+<div class="spotlight">
+	<div class="fs-row">
+		<div class="fs-cell">
+			<div class="spotlight_inner">
+				<div class="spotlight_text">
+					<h2 class="spotlight_title">
+						{% for row in rows %}
+							<span class="spotlight_title_row">{{ row }}</span>
+						{% endfor %}
+					</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="spotlight_media">
+		{# <img class="spotlight_image" src="../../images/dark-fiber.png" alt="dark fiber" /> #}
+		<div class="spotlight_bubbles" aria-hidden="true">
+			{% for i in 0..40 %}
+				<span class="spotlight_bubble spotlight_bubble_foreground"></span>
+			{% endfor %}
+		</div>
+		<div class="spotlight_bubbles" aria-hidden="true">
+			{% for i in 0..40 %}
+				<span class="spotlight_bubble spotlight_bubble_background"></span>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+<!-- END: Spotlight -->

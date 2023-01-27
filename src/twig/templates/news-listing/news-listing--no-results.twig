@@ -1,0 +1,34 @@
+{% include '@partial-page-header' with {
+	page: page
+} %}
+
+<div class="full_width_callouts" id="page_content" tabindex="-1" aria-labelledby="page_title">
+	{% include '@partial-filter' with {
+		label: '',
+		active: 'search',
+		action_category: 'page-news-category.html',
+		action_search: 'page-news-results.html',
+		tools: [
+			{
+				label: 'Category',
+				options: [
+					{
+						label: 'All Categories'
+					},
+					{
+						label: 'Category One',
+						selected: true
+					},
+					{
+						label: 'Another Category'
+					}
+				]
+			}
+		],
+		search_placeholder: 'Search by keyword',
+		results: '0',
+		category: 'search string'
+	} %}
+
+	{% render '@partial-no-results-message' %}
+</div>

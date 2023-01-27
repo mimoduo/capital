@@ -1,0 +1,33 @@
+/* ==========================================================================
+	Page
+============================================================================= */
+
+.page_wrapper {
+	width: 100%;
+	min-height: 100vh;
+
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	grid-template-columns: 100%;
+
+	@media print {
+		min-height: auto;
+
+		display: block;
+	}
+}
+
+.page {
+	display: flex;
+	flex-direction: column;
+}
+
+.page_feature {
+}
+
+.page_content {
+	flex: 1;
+}
+
+.full_width_callouts {
+}

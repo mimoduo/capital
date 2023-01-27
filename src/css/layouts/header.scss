@@ -1,0 +1,80 @@
+/* ==========================================================================
+	Header
+============================================================================= */
+
+.header {
+	width: 100%;
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 200;
+
+	padding-block: font_size_clamp(20px, 90px);
+	transition: padding $base_speed * 2;
+
+	&.scrolling {
+		padding-block: 20px;
+	}
+}
+
+.header_primary {}
+
+.header_primary_inner {
+	align-items: flex-start;
+	display: flex;
+	justify-content: space-between;
+}
+
+.header_logo {
+	border-radius: 0 0 font_size_clamp(20px, 30px) 0;
+	transform-origin: left top;
+	transition:
+		background $base_speed * 2,
+		padding $base_speed * 2,
+		transform $base_speed * 2;
+
+	@media #{$min_lg} {
+		padding-top: 40px;
+	}
+
+	.scrolling & {
+		background: $navy;
+
+		@media #{$min_sm} {
+			transform: scale(.75);
+		}
+
+		@media #{$min_lg} {
+			padding-top: 0;
+		}
+	}
+}
+
+.header_hint {
+	@include sans(600);
+
+	border-radius: 4px;
+	box-shadow: 0 0 0 0 $navy;
+	color: #fff;
+	letter-spacing: 0.5px;
+	font-size: font_size_clamp(14px, 24px);
+	text-transform: uppercase;
+	transform-origin: right top;
+	transition:
+		background $base_speed * 2,
+		transform $base_speed * 2;
+
+	@media #{$min_sm} {
+		letter-spacing: 1.68px;
+	}
+
+	.scrolling & {
+		background: $navy;
+		box-shadow: 0 0 10px 4px $navy;
+
+		@media #{$min_lg} {
+			transform: scale(.75);
+		}
+	}
+}

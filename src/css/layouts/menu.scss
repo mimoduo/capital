@@ -1,0 +1,187 @@
+/* ==========================================================================
+	Menu
+============================================================================= */
+
+.menu {
+	position: relative;
+
+	background-color: $gray_05;
+
+	@media #{$min_lg} {
+		display: none;
+	}
+
+	@media print {
+		display: none;
+	}
+
+	.loaded & {
+		transition: opacity 0.35s, transform 0.35s, visibility 0.35s;
+
+		@media #{$reduce} {
+			transition-duration: 0s;
+		}
+	}
+
+	&.fs-swap-enabled {
+		@include fake_scroll();
+
+		width: 100%;
+		height: 100%;
+
+		position: fixed;
+		top: 0;
+		right: 0;
+		z-index: 400;
+
+		opacity: 0;
+		overscroll-behavior: contain;
+		padding: 100px 0 0 0;
+		pointer-events: none;
+		visibility: hidden;
+	}
+
+	&.fs-swap-active {
+		opacity: 1;
+		pointer-events: auto;
+		visibility: visible;
+	}
+}
+
+.menu_header {
+}
+
+.menu_header_inner {
+}
+
+.menu_title {
+	@include visually_hide;
+}
+
+.menu_primary {
+	margin-bottom: 30px;
+}
+
+.menu_primary_inner {
+	display: grid;
+	gap: 30px;
+}
+
+.menu_search {
+}
+
+.menu_main_nav {
+}
+
+.menu_ribbon {
+}
+
+.menu_ribbon_inner {
+	display: grid;
+	gap: 30px;
+}
+
+.menu_audience_nav {
+}
+
+.menu_scondary_nav {
+}
+
+/* Menu Close
+============================================================================= */
+
+.menu_close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+
+	display: none;
+
+	.js & {
+		display: block;
+	}
+}
+
+.menu_close_inner {
+	min-height: 100px;
+
+	align-items: center;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.menu_close_toggle {
+	position: relative;
+
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	@include hover {
+		color: $black;
+	}
+}
+
+.menu_close_toggle_inner {
+	align-items: center;
+	display: flex;
+	gap: 10px;
+}
+
+.menu_close_toggle_icon {
+}
+
+.menu_close_toggle_label {
+}
+
+/* Menu Toggle
+============================================================================= */
+
+.menu_toggle {
+	position: relative;
+
+	border: 1px solid;
+	display: block;
+	padding: 10px;
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	@media print {
+		display: none;
+	}
+
+	@include hover {
+		color: $black;
+	}
+}
+
+.menu_toggle_inner {
+	align-items: center;
+	display: flex;
+	gap: 10px;
+}
+
+.menu_toggle_inner_default {
+}
+
+.menu_toggle_inner_active {
+}
+
+.menu_toggle_label {
+	@include label_text;
+}
+
+.menu_toggle_label_default {
+}
+
+.menu_toggle_label_active {
+}
+
+.menu_toggle_icon {
+}
+
+.menu_toggle_icon_default {
+}
+
+.menu_toggle_icon_active {
+}

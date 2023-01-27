@@ -1,0 +1,149 @@
+{#
+	{% include '@component-gallery' with {
+		title: 'Title',
+		description: 'Description',
+		rows: [
+			{
+				layout: '100',
+				items: [
+					{
+						image: '1',
+						alt: '',
+						video: {
+							type: '',
+							id: '',
+							title: ''
+						},
+						caption: 'caption'
+					}
+				]
+			}
+		]
+	} %}
+#}
+
+{%
+	set layout_sizes = {
+		"70_30": [
+			"wide",
+			"portrait"
+		],
+		"30_70": [
+			"portrait",
+			"wide"
+		],
+		"50_50": [
+			"wide",
+			"wide"
+		],
+		"100": [
+			"wide"
+		]
+	}
+%}
+
+<!-- Gallery -->
+<div class="gallery">
+	{% if title or description %}
+		<div class="gallery_header">
+			<div class="fs-row">
+				<div class="fs-cell fs-lg-8">
+					<div class="gallery_header_inner">
+						{% if title %}
+							<h2 class="gallery_title">{{ title }}</h2>
+						{% endif %}
+						{% if description %}
+							<div class="gallery_description">
+								<p>{{ description }}</p>
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+	<div class="gallery_body">
+		<div class="fs-row">
+			<div class="fs-cell">
+				<div class="gallery_body_inner">
+					<div class="gallery_items">
+						{% for row in rows %}
+							<div class="gallery_row grid_layout_{{ row.layout }}">
+								{% for item in row.items %}
+									{% set img_size = attribute(layout_sizes, row.layout)[ loop.index0 ] %}
+									<div class="gallery_item">
+										<figure class="gallery_item_figure">
+											<div class="gallery_item_media gallery_item_size_{{ img_size }}">
+												{% if img_size == "wide" %}
+													{% if row.layout == "50_50" %}
+														{% include '@partial-image' with {
+															class: 'gallery_item',
+															alt: '',
+															image: item.image,
+															loading: 'lazy',
+															sources: [
+																img.wide.med,
+																img.wide.sml,
+																img.wide.xsml,
+																img.wide.xxsml
+															]
+														} %}
+													{% else %}
+														{% include '@partial-image' with {
+															class: 'gallery_item',
+															alt: '',
+															image: item.image,
+															loading: 'lazy',
+															sources: [
+																img.wide.xlrg,
+																img.wide.lrg,
+																img.wide.med,
+																img.wide.sml,
+																img.wide.xsml,
+																img.wide.xxsml
+															]
+														} %}
+													{% endif %}
+												{% else %}
+													{% include '@partial-image' with {
+														class: 'gallery_item',
+														alt: '',
+														image: item.image,
+														loading: 'lazy',
+														sources: [
+															img.portraitFull.med,
+															img.portraitFull.sml,
+															img.portraitFull.xsml,
+															img.portraitFull.xxsml
+														]
+													} %}
+												{% endif %}
+
+												{% if item.video.id %}
+													{% include "@partial-lazy-video" with {
+														class: "gallery",
+														id: item.video.id,
+														type: item.video.type,
+														autoplay: item.video.autoplay|default(false),
+														title: item.video.title,
+														playerVars: {}
+													} %}
+												{% endif %}
+											</div>
+											{% if item.caption %}
+												<figcaption class="gallery_item_caption">
+													<p>{{ item.caption }}</p>
+												</figcaption>
+											{% endif %}
+										</figure>
+									</div>
+								{% endfor %}
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END: Gallery -->

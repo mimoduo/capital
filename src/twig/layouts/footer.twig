@@ -1,0 +1,34 @@
+<!-- Footer -->
+<footer class="footer" id="footer">
+	<div class="footer_primary">
+		<div class="fs-row">
+			<div class="fs-cell">
+				<div class="footer_primary_inner">
+					<div class="footer_address">
+						{% render '@partial-meta' %}
+					</div>
+					<div class="footer_logo">
+						{% include '@partial-logo' with {
+							modifier: 'footer',
+							icon: 'logo',
+							print: ''
+						} %}
+					</div>
+					<div class="footer_meta">
+						<a class="footer_email" href="mailto:{{ config.email }}">{{ config.email }}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="js-alert-wrapper">
+		{% if page.alert == true %}
+			{% set alert_path = page.alert_path|default('/components/render/partial-alert') %}
+			<!-- WordPress / Drupal, use AlertURL to target the script that returns this content. For BigTree, enter the alert markup here. -->
+			<script>
+				var AlertURL = "{{ alert_path|path }}";
+			</script>
+		{% endif %}
+	</div>
+</footer>
+<!-- END: Footer -->

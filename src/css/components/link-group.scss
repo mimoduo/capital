@@ -1,0 +1,62 @@
+/* ==========================================================================
+	Link Group
+============================================================================= */
+
+.link_group {
+	@include margined_xl;
+}
+
+.link_group_inner {
+}
+
+.link_group_header {
+	margin-bottom: 30px;
+}
+
+.link_group_title {
+	@include h2;
+
+	margin-block: 0;
+}
+
+.link_group_list {
+	display: grid;
+	column-gap: $fs_grid_gap;
+
+	@media #{$min_md} {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+.link_group_item {
+	border-bottom: 1px solid;
+}
+
+.link_group_link {
+	width: 100%;
+	height: 100%;
+
+	display: block;
+	padding-block: 20px;
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	@include hover {
+		color: $black;
+	}
+}
+
+.link_group_link_inner {
+}
+
+.link_group_link_label {
+}
+
+.link_group_link_icon {
+	margin-left: 14px;
+	white-space: nowrap;
+
+	.icon {
+		display: inline;
+	}
+}

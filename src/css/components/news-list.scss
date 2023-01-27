@@ -1,0 +1,166 @@
+/* ==========================================================================
+	News List
+============================================================================= */
+
+.news_list {
+	@include margined_xl;
+}
+
+.news_list_inner {
+}
+
+.news_list_rows {
+}
+
+.news_list_row {
+	border-top: 1px solid;
+	padding-block: 30px;
+}
+
+.news_list_item {
+	display: grid;
+	gap: 20px;
+
+	@media (min-width: 360px) and (max-width: 739px) {
+		display: block;
+	}
+
+	@media #{$min_md} {
+		display: flex;
+		gap: $fs_grid_gap;
+	}
+
+	@media #{$min_xl} {
+		align-items: center;
+		display: grid;
+		grid-template-columns: 1fr make_column(4);
+	}
+}
+
+.news_list_item_figure {
+	@include responsive_image;
+
+	width: 115px;
+
+	@media (min-width: 360px) and (max-width: 739px) {
+		float: right;
+		margin-left: 20px;
+	}
+
+	@media #{$min_sm} {
+		width: 30.5%;
+	}
+
+	@media #{$min_md} {
+		width: auto;
+
+		flex: 0 0 make_column(2);
+		order: 2;
+	}
+
+	@media #{$min_lg} {
+		flex-basis: make_column(4);
+	}
+}
+
+.news_list_item_figure_link {
+	display: block;
+}
+
+.news_list_item_wrapper {
+	@media #{$min_md} {
+		flex: 1%;
+	}
+}
+
+.news_list_item_header {
+	display: flex;
+	flex-direction: column-reverse;
+	gap: 15px;
+
+	@media #{$min_lg} {
+		margin-bottom: 20px;
+	}
+}
+
+.news_list_item_title {
+	@include h3;
+
+	margin-block: 0;
+}
+
+.news_list_item_title_link {
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	@include hover {
+		color: $black;
+	}
+}
+
+.news_list_item_categories {
+	margin-bottom: 10px;
+}
+
+.news_list_item_category_hint {
+	@include visually_hide;
+}
+
+.news_list_item_category_list {
+	display: flex;
+	flex-flow: row wrap;
+	gap: 10px;
+}
+
+.news_list_item_category {
+}
+
+.news_list_item_category_link {
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	@include hover {
+		color: $black;
+	}
+}
+
+.news_list_item_body {
+	display: grid;
+	gap: 10px;
+}
+
+.news_list_item_details {
+	@include small_text;
+}
+
+.news_list_item_detail {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.news_list_item_date {
+}
+
+.news_list_item_detail_hint {
+	.news_list_item_date & {
+		@include visually_hide;
+	}
+}
+
+.news_list_item_detail_label {
+}
+
+.news_list_item_author {
+}
+
+.news_list_item_description {
+	@include body_text;
+
+	p {
+		margin-block: 0;
+	}
+}
+
+.news_list_pagination {
+	@include margined_lg_top;
+}

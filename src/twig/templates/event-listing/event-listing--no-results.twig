@@ -1,0 +1,47 @@
+{% include '@partial-page-header' with {
+	page: page
+} %}
+
+<div class="full_width_callouts" id="page_content" tabindex="-1" aria-labelledby="page_title">
+	{% include '@partial-filter' with {
+		label: '',
+		active: 'search',
+		action_category: '#',
+		action_search: '#',
+		tools: [
+			{
+				label: 'Category',
+				options: [
+					{
+						label: 'All Categories'
+					},
+					{
+						label: 'Category One'
+					},
+					{
+						label: 'Another Category'
+					}
+				]
+			},
+			{
+				label: 'Type',
+				options: [
+					{
+						label: 'All Types'
+					},
+					{
+						label: 'Type One'
+					},
+					{
+						label: 'Another Type'
+					}
+				]
+			}
+		],
+		search_placeholder: 'Search by keyword',
+		results: '0',
+		category: 'search string'
+	} %}
+
+	{% render '@partial-no-results-message' %}
+</div>

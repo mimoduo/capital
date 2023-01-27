@@ -1,0 +1,132 @@
+/* ==========================================================================
+	Pagination
+============================================================================= */
+
+.pagination {
+	position: relative;
+
+	display: none;
+
+	.js & {
+		display: block;
+
+		@media print {
+			display: none;
+		}
+	}
+}
+
+/* Pagination Nav
+============================================================================= */
+
+.pagination_nav {
+	@include cover;
+
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+
+.pagination_arrow {
+	width: 24px;
+	height: 34px;
+
+	position: relative;
+	z-index: 2;
+
+	align-items: center;
+	color: blue;
+	display: flex;
+	opacity: 1;
+	transition: color $base_speed, opacity $base_speed, visibility $base_speed;
+	visibility: visible;
+
+	@include hover {
+		color: $black;
+	}
+}
+
+.pagination_arrow_disabled {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.pagination_arrow_left {
+	border-right: 2px solid;
+}
+
+.pagination_arrow_right {
+	border-left: 2px solid;
+	justify-content: flex-end;
+}
+
+.pagination_arrow_label {
+	@include visually_hide;
+}
+
+.pagination_arrow_icon {
+}
+
+/* Pagination Form
+============================================================================= */
+
+.pagination_form {
+	position: relative;
+
+	text-align: center;
+}
+
+.pagination_form_inner {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+.pagination_form_label {
+	display: none;
+	margin-right: 10px;
+
+	@media #{$min_sm} {
+		display: block;
+	}
+}
+
+.pagination_form_select_wrapper {
+	position: relative;
+
+	display: inline-block;
+}
+
+.pagination_form_select {
+	appearance: none;
+	-webkit-appearance: none;
+	background-color: none;
+	border: 1px solid;
+	cursor: pointer;
+	padding: 10px 30px 10px 14px;
+}
+
+.pagination_form_select_icon {
+	position: absolute;
+	top: 50%;
+	right: 18px;
+
+	pointer-events: none;
+	translate: 0 -50%;
+}
+
+.pagination_form_suffix {
+	margin-inline: 10px;
+}
+
+.pagination_form_button {
+	border: 1px solid;
+	color: blue;
+	padding: 10px;
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	@include hover {
+		color: $black;
+	}
+}

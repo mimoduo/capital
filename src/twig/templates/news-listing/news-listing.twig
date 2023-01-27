@@ -1,0 +1,11 @@
+{% include '@partial-page-header' with {
+	page: page
+} %}
+
+<div class="full_width_callouts" id="page_content" tabindex="-1" aria-labelledby="page_title">
+	{% render '@partial-news-feature' %}
+
+	{% render '@partial-filter' %}
+
+	{% render '@partial-news-list' %}
+</div>

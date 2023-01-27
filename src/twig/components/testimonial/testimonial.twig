@@ -1,0 +1,47 @@
+{#
+	{% include '@component-testimonial' with {
+		quote: '"Quote"',
+		name: 'Name',
+		job_title: 'Job Title',
+		image: '1'
+	} %}
+#}
+
+<!-- Testimonial -->
+<div class="testimonial">
+	<div class="fs-row">
+		<div class="fs-cell">
+			<div class="testimonial_inner">
+				<figure class="testimonial_figure">
+					<blockquote class="testimonial_quote">
+						<span class="testimonial_quote_open">&ldquo;</span>
+						<p>{{ quote }}</p>
+					</blockquote>
+					<figcaption class="testimonial_figcaption">
+						{% if image %}
+							<span class="testimonial_media">
+								{% include '@partial-image' with {
+									class: 'testimonial',
+									alt: '',
+									image: image,
+									loading: 'lazy',
+									sources: [
+										img.square.xxsml,
+										img.square.thumb
+									]
+								} %}
+							</span>
+						{% endif %}
+						<span class="testimonial_info">
+							<span class="testimonial_quote_name">{{ name }}</span>
+							{% if job_title %}
+								<span class="testimonial_quote_title">{{ job_title }}</span>
+							{% endif %}
+						</span>
+					</figcaption>
+				</figure>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END: Testimonial -->

@@ -1,0 +1,570 @@
+@mixin mq_switch() {
+	&_sm {
+		@media #{$min_lg} {
+			display: none;
+		}
+	}
+
+	&_lg {
+		@media #{$max_lg} {
+			display: none;
+		}
+	}
+}
+
+// 1. IE 10/11 uses a non-standard
+// 2. Firefox
+
+@mixin columns($count, $gap: 0) {
+	column-count: $count;
+	column-gap: $gap;
+
+	& > * {
+		column-break-inside: avoid;
+		break-inside: avoid; // 1
+		page-break-inside: avoid; // 2
+	}
+}
+
+@mixin cover() {
+	width: 100%;
+	height: 100%;
+
+	position: absolute;
+	inset: 0;
+}
+
+@mixin bleed($edge: 20px) {
+	width: calc(100% + #{$edge});
+	height: calc(100% + #{$edge});
+
+	position: absolute;
+	top: -#{$edge / 2};
+	left: -#{$edge / 2};
+}
+
+@mixin center() {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	translate: -50% -50%;
+}
+
+@mixin center_vertical() {
+	position: absolute;
+	top: 50%;
+
+	translate: 0 -50%;
+}
+
+@mixin absolute_center() {
+	position: absolute;
+	inset: 0;
+
+	margin: auto;
+}
+
+@mixin text_indent($height: 0) {
+	display: block;
+	line-height: $height;
+	overflow: hidden;
+	text-indent: 100%;
+}
+
+@mixin ellipsis() {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+@mixin gradient_right($startColor: black, $endColor: white) {
+	background-color: $startColor;
+	background: linear-gradient(to right, $startColor, $endColor);
+}
+
+@mixin gradient_down($startColor: black, $endColor: white) {
+	background-color: $startColor;
+	background: linear-gradient(to bottom, $startColor, $endColor);
+}
+
+@mixin font_smoothing() {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@mixin kill_flicker() {
+	-webkit-font-smoothing: auto;
+	translate: 0 0 0;
+}
+
+@mixin word_break() {
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	word-break: break-all;
+	word-break: break-word;
+	hyphens: auto;
+}
+
+@mixin remove_list {
+	list-style: none;
+	margin-block: 0;
+	padding-left: 0;
+}
+
+// Fonts
+// =============================================================================
+
+@mixin font-face($name, $list) {
+	@each $file, $weight, $style in $list {
+		@font-face {
+			font-display: swap;
+			font-family: $name;
+			src: url('../fonts/#{$file}.otf');
+			font-weight: $weight;
+
+			@if $style {
+				font-style: $style;
+			}
+		}
+	}
+}
+
+// Margins
+// =============================================================================
+
+@mixin spacing($properties: ()) {
+	@each $property in $properties {
+		#{$property}: calc(var(--spacing-base, #{$margin_sm}) * var(--spacing-modifier, 1));
+	}
+}
+
+@mixin margined_top($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('margin-top'));
+}
+
+@mixin margined_bottom($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('margin-bottom'));
+}
+
+@mixin margined($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('margin-block'));
+}
+
+@mixin margined_md_top($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('margin-top'));
+
+	@media #{$min_md} {
+		--spacing-base: #{$margin_md};
+	}
+}
+
+@mixin margined_md_bottom($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('margin-bottom'));
+
+	@media #{$min_md} {
+		--spacing-base: #{$margin_md};
+	}
+}
+
+@mixin margined_md($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('margin-block'));
+
+	@media #{$min_md} {
+		--spacing-base: #{$margin_md};
+	}
+}
+
+@mixin margined_lg_top($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('margin-top'));
+
+	@media #{$min_lg} {
+		--spacing-base: #{$margin_lg};
+	}
+}
+
+@mixin margined_lg_bottom($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('margin-bottom'));
+
+	@media #{$min_lg} {
+		--spacing-base: #{$margin_lg};
+	}
+}
+
+@mixin margined_lg($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('margin-block'));
+
+	@media #{$min_lg} {
+		--spacing-base: #{$margin_lg};
+	}
+}
+
+@mixin margined_xl_top($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('margin-top'));
+
+	@media #{$min_xl} {
+		--spacing-base: #{$margin_xl};
+	}
+}
+
+@mixin margined_xl_bottom($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('margin-bottom'));
+
+	@media #{$min_xl} {
+		--spacing-base: #{$margin_xl};
+	}
+}
+
+@mixin margined_xl($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('margin-block'));
+
+	@media #{$min_xl} {
+		--spacing-base: #{$margin_xl};
+	}
+}
+
+@mixin margined_top_none() {
+	margin-top: 0 !important;
+}
+
+@mixin margined_bottom_none() {
+	margin-bottom: 0 !important;
+}
+
+@mixin margined_none() {
+	@include margined_top_none;
+	@include margined_bottom_none;
+}
+
+// Padding
+// =============================================================================
+
+@mixin padded_top($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('padding-top'));
+}
+
+@mixin padded_bottom($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('padding-bottom'));
+}
+
+@mixin padded($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('padding-block'));
+}
+
+@mixin padded_md_top($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(padding-top);
+
+	@media #{$min_md} {
+		--spacing-base: #{$margin_md};
+	}
+}
+
+@mixin padded_md_bottom($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('padding-bottom'));
+
+	@media #{$min_md} {
+		--spacing-base: #{$margin_md};
+	}
+}
+
+@mixin padded_md($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('padding-block'));
+
+	@media #{$min_md} {
+		--spacing-base: #{$margin_md};
+	}
+}
+
+@mixin padded_lg_top($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('padding-top'));
+
+	@media #{$min_lg} {
+		--spacing-base: #{$margin_lg};
+	}
+}
+
+@mixin padded_lg_bottom($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('padding-bottom'));
+
+	@media #{$min_lg} {
+		--spacing-base: #{$margin_lg};
+	}
+}
+
+@mixin padded_lg($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('padding-block'));
+
+	@media #{$min_lg} {
+		--spacing-base: #{$margin_lg};
+	}
+}
+
+@mixin padded_xl_top($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('padding-top'));
+
+	@media #{$min_xl} {
+		--spacing-base: #{$margin_xl};
+	}
+}
+
+@mixin padded_xl_bottom($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('padding-bottom'));
+
+	@media #{$min_xl} {
+		--spacing-base: #{$margin_xl};
+	}
+}
+
+@mixin padded_xl($m: 1) {
+	--spacing-modifier: #{$m};
+
+	@include spacing(('padding-block'));
+
+	@media #{$min_xl} {
+		--spacing-base: #{$margin_xl};
+	}
+}
+
+@mixin padded_top_none() {
+	padding-top: 0;
+}
+
+@mixin padded_bottom_none() {
+	padding-bottom: 0;
+}
+
+@mixin padded_none() {
+	@include padded_top_none;
+	@include padded_bottom_none;
+}
+
+// Helpers
+// =============================================================================
+
+@mixin block_left() {
+	float: left;
+
+	margin: 0 20px 20px 0;
+}
+
+@mixin block_right() {
+	float: right;
+
+	margin: 0 0 20px 20px;
+}
+
+@mixin block_center() {
+	margin: 20px auto;
+	text-align: center;
+}
+
+@mixin clearfix() {
+	&:after {
+		clear: both;
+		content: '';
+		display: table;
+	}
+}
+
+@mixin no_select() {
+	&,
+	& * {
+		user-select: none;
+	}
+}
+
+@mixin hide() {
+	display: none !important;
+	visibility: hidden;
+}
+
+@mixin visually_unhide() {
+	width: auto;
+	height: auto;
+
+	position: static;
+
+	clip: auto;
+	margin: 0;
+	overflow: visible;
+}
+
+@mixin visually_hide() {
+	width: 1px;
+	height: 1px;
+
+	position: absolute;
+
+	border: 0;
+	clip: rect(0 0 0 0);
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+
+	&.focusable:active,
+	&.focusable:focus {
+		@include visually_unhide();
+	}
+}
+
+@mixin offscreen() {
+	width: 1px;
+	height: 1px;
+
+	position: absolute;
+	left: -999px;
+
+	overflow: hidden;
+	z-index: -999;
+}
+
+// Transitions
+// =============================================================================
+
+@mixin hide() {
+	opacity: 0;
+	pointer-events: none;
+	visibility: hidden;
+}
+
+@mixin show() {
+	opacity: 1;
+	pointer-events: auto;
+	visibility: visible;
+}
+
+// Images
+// =============================================================================
+
+@mixin image_1_1() {
+	padding-top: 100%;
+}
+
+@mixin image_16_9() {
+	padding-top: (9 / 16) * 100%;
+}
+
+@mixin image_3_2() {
+	padding-top: (2 / 3) * 100%;
+}
+
+@mixin responsive_image() {
+	display: block;
+
+	img {
+		display: block;
+
+		width: 100%;
+		height: auto;
+	}
+}
+
+// Layout
+// =============================================================================
+
+@mixin space_out() {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+
+/* Not to be used with a form container */
+/* Use -webkit-overflow-scrolling: auto instead */
+@mixin fake_scroll($touch: true) {
+	overflow-y: auto;
+
+	@if $touch {
+		-webkit-overflow-scrolling: touch;
+	} @else {
+		-webkit-overflow-scrolling: auto;
+	}
+}
+
+// Hover
+// =============================================================================
+
+@mixin hover($focus: true, $swap: false) {
+	@if $focus {
+		&:focus-visible {
+			@content;
+		}
+	}
+
+	@if $swap {
+		&.fs-swap-active {
+			@content;
+		}
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+}
+
+@mixin nested_hover($selector: '', $focus: true, $swap: false) {
+	@if $focus {
+		#{$selector}:focus-visible & {
+			@content;
+		}
+	}
+
+	@if $swap {
+		#{$selector}.fs-swap-active & {
+			@content;
+		}
+	}
+
+	@media (hover: hover) {
+		#{$selector}:hover & {
+			@content;
+		}
+	}
+}

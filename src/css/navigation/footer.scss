@@ -1,0 +1,37 @@
+/* ==========================================================================
+	Footer Navigation
+============================================================================= */
+
+.footer_nav {
+}
+
+.footer_nav_header {
+}
+
+.footer_nav_title {
+	@include visually_hide;
+}
+
+.footer_nav_list {
+	@include h5;
+}
+
+.footer_nav_item {
+}
+
+.footer_nav_link {
+	display: block;
+	padding-block: 10px;
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	@include hover {
+		color: $black;
+	}
+}
+
+.footer_nav_link_label {
+}
+
+.footer_nav_link_icon {
+}

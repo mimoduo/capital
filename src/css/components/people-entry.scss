@@ -1,0 +1,31 @@
+/* ==========================================================================
+	People Entry
+============================================================================= */
+
+.people_entry {
+}
+
+.people_entry_figure {
+	@include responsive_image;
+
+	width: 115px;
+	margin-block: 20px;
+
+	@media (min-width: 360px) {
+		float: right;
+		margin-left: 20px;
+	}
+
+	@media #{$min_sm} {
+		margin-block: 30px;
+		margin-left: 30px;
+	}
+
+	@media #{$min_md} {
+		width: 215px;
+	}
+}
+
+.people_entry_image {
+	border-radius: 50%;
+}

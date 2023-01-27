@@ -1,0 +1,68 @@
+/* ==========================================================================
+	Testimonial
+============================================================================= */
+
+.testimonial {
+	@include margined_lg;
+}
+
+.testimonial_inner {
+}
+
+.testimonial_figure {
+	display: grid;
+	gap: 30px;
+}
+
+.testimonial_quote {
+	@include h3;
+
+	margin: 0;
+
+	p {
+		margin-block: 0;
+	}
+
+	a {
+		@include type_link;
+	}
+}
+
+.testimonial_quote_open {
+	font-size: 80px;
+	font-weight: 700;
+	display: block;
+}
+
+.testimonial_figcaption {
+	align-items: center;
+	display: grid;
+	gap: 30px;
+	grid-template-columns: 1fr max-content;
+	text-align: right;
+}
+
+.testimonial_media {
+	@include responsive_image;
+
+	width: 85px;
+
+	order: 2;
+}
+
+.testimonial_image {
+	border-radius: 50%;
+}
+
+.testimonial_info {
+	@include body_text;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.testimonial_quote_name {
+}
+
+.testimonial_quote_title {
+}

@@ -1,0 +1,95 @@
+/* ==========================================================================
+	Main Collapse Nav
+============================================================================= */
+
+.main_collapse_nav {
+}
+
+.main_collapse_nav_header {
+	@include visually_hide;
+}
+
+.main_collapse_nav_title {
+}
+
+.main_collapse_nav_list {
+	display: grid;
+	gap: 4px;
+}
+
+.main_collapse_nav_item {
+}
+
+.main_collapse_nav_item_inner {
+	display: grid;
+	gap: 10px;
+	grid-template-columns: 1fr 48px; // minimum touch target size ~48
+}
+
+.main_collapse_nav_link {
+	@include h5;
+
+	display: block;
+	padding-block: 10px;
+	text-decoration: underline;
+	transition: color $base_speed;
+
+	@include hover {
+		color: $black;
+	}
+}
+
+.main_collapse_nav_link_inner {
+}
+
+.main_collapse_nav_link_label {
+}
+
+.main_collapse_nav_toggle {
+	&.fs-swap-enabled {
+		border: 1px solid;
+		color: blue;
+		transition: color $base_speed, rotate $base_speed;
+
+		@include hover {
+			color: $black;
+		}
+	}
+
+	&.fs-swap-active {
+		rotate: 180deg;
+	}
+}
+
+.main_collapse_nav_toggle_inner {
+}
+
+.main_collapse_nav_toggle_icon {
+}
+
+.main_collapse_nav_children {
+}
+
+.main_collapse_nav_child_item {
+}
+
+.main_collapse_nav_child_link {
+	@include label_text;
+
+	display: block;
+	padding-block: 10px;
+	transition: color $base_speed;
+
+	@include hover {
+		color: $black;
+	}
+}
+
+.main_collapse_nav_child_link_inner {
+}
+
+.main_collapse_nav_child_link_icon {
+}
+
+.main_collapse_nav_child_link_label {
+}

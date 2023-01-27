@@ -1,0 +1,84 @@
+.text_image_block {
+	position: relative;
+
+	align-items: center;
+	background: var(--text_block_background);
+	display: flex;
+	overflow: hidden;
+	padding-block: font_size_clamp(80px, 180px);
+}
+
+.text_image_block_inner {
+	@media #{$min_xl} {
+		align-items: center;
+		display: flex;
+	}
+}
+
+.text_image_block_main {
+	position: relative;
+	z-index: 20;
+
+	opacity: 0;
+	transform: translate(-20px, 0);
+	transition:
+		opacity $base_speed * 2,
+		transform $base_speed * 2;
+
+	@media #{$min_xl} {
+		width: 50%;
+	}
+
+	.show & {
+		opacity: 1;
+		transform: translate(0, 0);
+	}
+
+	h2 {
+		@include serif(600);
+
+		font-size: font_size_clamp(30px, 60px);
+		line-height: calc(74 / 60);
+		margin: 0 0 font_size_clamp(16px, 38px);
+	}
+
+	p {
+		@include sans;
+
+		font-size: font_size_clamp(18px, 26px);
+		line-height: calc(36 / 26);
+		margin-block: font_size_clamp(16px, 38px);
+	}
+}
+
+.text_image_block_media {
+	opacity: 0;
+	transform:
+		translate(20px, 0) scale(.985);
+	transform-origin: right center;
+	transition:
+		opacity $base_speed * 2,
+		transform $base_speed * 2;
+
+	@media #{$min_xl} {
+		width: 50%;
+	}
+
+	.show & {
+		opacity: 1;
+		transform:
+			translate(0, 0) scale(1);
+	}
+}
+
+.text_image_block_image {
+	width: 120%;
+	max-width: 150%;
+
+	@media #{$min_xl} {
+		width: auto;
+		max-width: inherit;
+
+		margin-left: -160px;
+	}
+}
