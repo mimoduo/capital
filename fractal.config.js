@@ -27,7 +27,7 @@ customizedTheme.addLoadPath(__dirname + '/src/fractal/mandelbrot');
 /* Set the title of the project */
 fractal.set('project.title', `${config.twig_variables.name} Component Library`);
 fractal.set('project.version', pkgJson.version);
-fractal.set('project.author', 'Fastspot');
+fractal.set('project.author', 'CIP');
 
 fractal.docs.engine(twigAdapter);
 fractal.docs.set('path', __dirname + '/src/docs');
